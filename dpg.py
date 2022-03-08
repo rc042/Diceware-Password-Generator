@@ -1,4 +1,5 @@
 from wordlist import wordlist
+from random import randrange
 import secrets
 
 DICE_COUNT = 5
@@ -40,13 +41,15 @@ for _ in range(ask_user):
 for i in dice_rolls:
     for k, v in wordlist.items():
         if i == k:
-            word_list.append(v)
+            nb = randrange(10)
+            v = v + str(nb)
+            word_list.append(v.capitalize())
 
 print('\n- YOUR WORDS ARE -\n')
 for i in word_list:
     print(i, end=' ')
 
-final_passphrase = " ".join(word_list).replace(" ", "")
+final_passphrase = " ".join(word_list).replace(" ", "-")
 
 print('\n\n- YOUR PASSPHRASE IS -\n')
 print(final_passphrase)
